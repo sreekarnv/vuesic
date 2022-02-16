@@ -53,12 +53,53 @@
         <div class="text-center">
           <button
             @click="toggleMusic"
-            class="btn btn-success mb-5"
+            class="bg-transparent rounded-circle mb-5 border-none"
             :disabled="currentTime === '00:00'"
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            :title="isPlaying? 'Pause' : 'Play'"
           >
-            <span v-if="isPlaying">Pause</span>
+            <span v-if="isPlaying">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="30"
+                width="30"
+                fill="none"
+                class="text-secondary music-control"
+                viewBox="0 0 30 30"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </span>
             <span v-else>
-              Play
+              <svg
+                height="30"
+                width="30"
+                xmlns="http://www.w3.org/2000/svg"
+                class="text-secondary music-control"
+                fill="none"
+                viewBox="0 0 30 30"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
             </span>
           </button>
         </div>
@@ -147,6 +188,11 @@ export default defineComponent({
 .music-cover {
   height: 350px;
   width: 350px;
+}
+
+.music-control {
+  height: 60px;
+  width: 60px;
 }
 
 .avatar {

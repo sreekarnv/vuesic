@@ -17,6 +17,7 @@ export default defineComponent({
   name: "App",
   setup() {
     const store = useStore();
+
     store.dispatch("checkAuth");
     return {};
   },

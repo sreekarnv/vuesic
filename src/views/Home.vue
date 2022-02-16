@@ -3,7 +3,7 @@
     <h1 class="mb-4">Home Page</h1>
     <button
       @click="loginUser"
-      class="btn btn-success"
+      class="btn btn-gradient"
     >Log in / Sign Up</button>
   </div>
 </template>

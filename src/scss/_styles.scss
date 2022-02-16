@@ -2,3 +2,24 @@
 	padding-top: 4.5rem;
 	height: 100vh;
 }
+
+.btn-gradient {
+	background: linear-gradient(to right bottom, $primary, $secondary);
+	color: #fff;
+	border: none;
+	padding-left: 0.85rem;
+	padding-right: 0.85rem;
+	padding-top: 0.65rem;
+	padding-bottom: 0.65rem;
+	transition: all 0.3s ease-out;
+
+	&:hover,
+	&:focus {
+		background: linear-gradient(to right bottom, $secondary, $primary);
+		color: #fff;
+	}
+}
+
+.border-none {
+	border: none !important;
+}

@@ -1,5 +1,5 @@
 <template>
-  <aside class="d-none d-md-block sidebar">
+  <aside class="sidebar">
     <ul
       v-if="songs.length"
       class="list-group top-0 pt-4"
