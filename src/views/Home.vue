@@ -66,6 +66,7 @@ export default defineComponent({
 
   @media screen and (max-width: 768px) {
     height: 400px;
+    width: 100%;
   }
 }
 </style>
