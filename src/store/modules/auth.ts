@@ -12,13 +12,13 @@ const authModule: Module<AuthState, RootState> = {
 		user: null,
 		loginError: null,
 		loginLoading: false,
+		logoutLoading: false,
 	},
 	actions: {
 		async checkAuth(store) {
-			const unsubscribe = onAuthStateChanged(auth, (u) => {
+			onAuthStateChanged(auth, (u) => {
 				if (u) {
 					store.commit('setUser', u);
-					unsubscribe();
 				}
 			});
 		},
@@ -32,8 +32,10 @@ const authModule: Module<AuthState, RootState> = {
 			store.commit('toggleLoginLoading');
 		},
 		async logoutUser(store) {
+			store.commit('toggleLogoutLoading');
 			await auth.signOut();
 			store.commit('setUser', null);
+			store.commit('toggleLogoutLoading');
 		},
 	},
 	getters: {},
@@ -46,6 +48,9 @@ const authModule: Module<AuthState, RootState> = {
 		},
 		toggleLoginLoading(state) {
 			state.loginLoading = !state.loginLoading;
+		},
+		toggleLogoutLoading(state) {
+			state.logoutLoading = !state.logoutLoading;
 		},
 	},
 };

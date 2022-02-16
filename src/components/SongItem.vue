@@ -17,7 +17,7 @@
         </div>
         <small
           v-if="currentSong?.id === song.id"
-          class="text-muted"
+          class="text-primary"
         >Playing..</small>
       </div>
     </div>

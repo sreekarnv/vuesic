@@ -20,12 +20,10 @@
         </li>
 
         <li class="nav-item">
-          <a
-            @click="logoutUser"
-            href="#"
+          <router-link
+            to="/logout"
             role="button"
             class="nav-link logout rounded-circle p-2 btn-sm ms-3 text-danger fw-bold btn btn-outline-danger"
-            to="/dashboard"
             data-bs-toggle="tooltip"
             data-bs-placement="top"
             title="Logout"
@@ -45,7 +43,7 @@
                 d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
               />
             </svg>
-          </a>
+          </router-link>
         </li>
       </ul>
     </div>
@@ -64,7 +62,6 @@ export default defineComponent({
     return {
       user: computed(() => store.state.auth.user),
       loginUser: () => store.dispatch("loginUser"),
-      logoutUser: () => store.dispatch("logoutUser"),
     };
   },
 });

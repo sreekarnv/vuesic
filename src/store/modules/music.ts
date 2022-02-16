@@ -1,9 +1,9 @@
 import { db } from '@/config/firebase';
 import { query, collection, getDocs } from 'firebase/firestore';
 import { Module } from 'vuex';
-import { RootState } from '../types';
+import { MusicState, RootState } from '../types';
 
-const musicModule: Module<any, RootState> = {
+const musicModule: Module<MusicState, RootState> = {
 	state: {
 		songs: [],
 		currentSong: null,

@@ -18,6 +18,14 @@ const routes: Array<RouteRecordRaw> = [
 			auth: true,
 		},
 	},
+	{
+		path: '/logout',
+		name: 'Logout',
+		component: () => import('../views/Logout.vue'),
+		meta: {
+			auth: true,
+		},
+	},
 ];
 
 const router = createRouter({
