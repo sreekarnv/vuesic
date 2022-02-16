@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, onBeforeMount } from "vue";
 import { useStore } from "vuex";
 import AppNavbar from "./components/AppNavbar.vue";
 
@@ -18,7 +18,10 @@ export default defineComponent({
   setup() {
     const store = useStore();
 
-    store.dispatch("checkAuth");
+    onBeforeMount(async () => {
+      await store.dispatch("checkAuth");
+    });
+
     return {};
   },
 });

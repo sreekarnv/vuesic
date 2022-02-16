@@ -1,35 +1,43 @@
 <template>
   <div class="container d-flex flex-column justify-content-center align-items-center pt-4">
     <h1 class="fw-bold text-dark ">Vuesic</h1>
-    <p class="mb-4">Built with
-      <a
-        href="https://vuejs.org/"
-        class="text-primary"
-      >
-        Vue Js
-      </a>
-      and
-      <a
-        class="text-primary"
-        href="https://firebase.google.com/"
-      >
-        Firebase
-      </a>
-    </p>
+
     <button
+      v-if="!user"
       @click="loginUser"
-      class="btn btn-gradient mb-5"
+      class="btn btn-gradient mt-3 mb-4"
     >Log in / Sign Up</button>
+    <router-link
+      v-else
+      to="/dashboard"
+      class="btn btn-gradient mt-3 mb-4"
+    >Go to dashboard</router-link>
     <img
       class="img-fluid home-bg-image"
-      src="../assets/home.jpg"
+      src="../assets/home.png"
       alt="home-bg"
     >
   </div>
+  <p class="mt-5 text-center">Built with
+    <a
+      href="https://vuejs.org/"
+      class="text-primary"
+    >
+      Vue Js
+    </a>
+    and
+    <a
+      class="text-primary"
+      href="https://firebase.google.com/"
+    >
+      Firebase
+    </a>
+  </p>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent, onUpdated } from "vue";
+import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 
 export default defineComponent({
@@ -37,9 +45,16 @@ export default defineComponent({
   components: {},
   setup() {
     const store = useStore();
+    const router = useRouter();
+
+    const loginUser = async () => {
+      await store.dispatch("loginUser");
+      router.replace("/dashboard");
+    };
 
     return {
-      loginUser: () => store.dispatch("loginUser"),
+      loginUser,
+      user: computed(() => store.state.auth.user),
     };
   },
 });
