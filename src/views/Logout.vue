@@ -1,28 +1,26 @@
 <template>
-  <div>
-    loading....
-  </div>
+	<div>loading....</div>
 </template>
 
 <script lang="ts">
-import { defineComponent, onBeforeMount, onMounted } from "vue";
-import { useRouter } from "vue-router";
-import { useStore } from "vuex";
+import { defineComponent, onBeforeMount, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
 
 export default defineComponent({
-  setup() {
-    const router = useRouter();
-    const store = useStore();
+	setup() {
+		const router = useRouter();
+		const store = useStore();
 
-    onBeforeMount(async () => {
-      await store.dispatch("logoutUser");
-    });
+		onBeforeMount(async () => {
+			await store.dispatch('logoutUser');
+		});
 
-    onMounted(() => {
-      router.replace("/");
-    });
+		onMounted(() => {
+			router.replace('/');
+		});
 
-    return {};
-  },
+		return {};
+	},
 });
 </script>

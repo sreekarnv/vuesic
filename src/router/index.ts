@@ -1,11 +1,11 @@
-import store from '@/store';
+import store from '../store';
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 
 const routes: Array<RouteRecordRaw> = [
 	{
 		path: '/',
 		name: 'Home',
-		component: () => import('../views/Home.vue'),
+		component: () => import('../views/index.vue'),
 		meta: {
 			auth: false,
 		},
@@ -13,7 +13,7 @@ const routes: Array<RouteRecordRaw> = [
 	{
 		path: '/dashboard',
 		name: 'Dashboard',
-		component: () => import('../views/Dashboard.vue'),
+		component: () => import('../views/dashboard.vue'),
 		meta: {
 			auth: true,
 		},
@@ -21,7 +21,7 @@ const routes: Array<RouteRecordRaw> = [
 	{
 		path: '/logout',
 		name: 'Logout',
-		component: () => import('../views/Logout.vue'),
+		component: () => import('../views/logout.vue'),
 		meta: {
 			auth: true,
 		},
@@ -29,7 +29,7 @@ const routes: Array<RouteRecordRaw> = [
 ];
 
 const router = createRouter({
-	history: createWebHistory(process.env.BASE_URL),
+	history: createWebHistory(import.meta.env.BASE_URL),
 	routes,
 });
 

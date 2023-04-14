@@ -1,4 +1,4 @@
-import { db } from '@/config/firebase';
+import { db } from '../../config/firebase';
 import { query, collection, getDocs } from 'firebase/firestore';
 import { Module } from 'vuex';
 import { MusicState, RootState } from '../types';

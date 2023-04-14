@@ -3,7 +3,7 @@ import {
 	onAuthStateChanged,
 	signInWithPopup,
 } from 'firebase/auth';
-import { auth } from '@/config/firebase';
+import { auth } from '../../config/firebase';
 import { Module } from 'vuex';
 import { AuthState, RootState } from '../types';
 
